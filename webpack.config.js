@@ -59,12 +59,34 @@ module.exports = {
           }
         ]
       },
+      {
+        test: /\.(png|jpg|gif|woff|svg|eot|ttf)\??.*$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: '[path][name].[ext]',
+              outputPath: 'images/'
+            }
+          }
+        ]
+      },
       { 
       	test: /\.(js|jsx)$/, 
       	exclude: path.resolve(__dirname, 'node_modules'), 
       	loader: "babel-loader"
       }
     ]
+  },
+  resolve: {
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+      common: 'src/common',
+      component: 'src/component',
+      container: 'src/container'
+    },
+    extensions:['.js','.jsx']
   },
 	plugins: [new HtmlWebpackPlugin({
       title: 'react dianping',

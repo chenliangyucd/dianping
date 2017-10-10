@@ -1,14 +1,14 @@
 import React from 'react';
 
-class Index from React.Component {
-	
+
+class HeadSearch extends React.Component {
+   	
   render () {
     return (
       
-
     );
   }
 
 }
 
-export default Index;
+export default HeadSearch;

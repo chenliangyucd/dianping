@@ -6,9 +6,10 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-import App from '../component/app/App.jsx';
-import Hello from '../component/hello/Hello.jsx';
-import Hi from '../component/hi/Hi.jsx';
+import App from 'component/App';
+import Hello from 'component/Hello';
+import Hi from 'component/Hi';
+import Foot from 'component/Foot';
 
 class Routes extends React.Component {
   render () {
@@ -18,7 +19,7 @@ class Routes extends React.Component {
           <div>head</div>
           <Route path="/hello" component={Hello}></Route>
           <Route path="/hi" component={Hi}></Route>
-          <div>footer</div>
+          <Foot></Foot>
         </div>
       </Router>
     );
