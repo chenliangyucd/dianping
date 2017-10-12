@@ -6,9 +6,8 @@ import {
   Redirect,
   Switch
 } from 'react-router-dom';
-import App from 'component/App';
-import Hello from 'component/Hello';
-import Hi from 'component/Hi';
+
+import Index from 'container/Index';
 import Foot from 'component/Foot';
 
 class Routes extends React.Component {
@@ -16,9 +15,7 @@ class Routes extends React.Component {
     return (
       <Router>
         <div>
-          <div>head</div>
-          <Route path="/hello" component={Hello}></Route>
-          <Route path="/hi" component={Hi}></Route>
+          <Route path="/index" component={Index}></Route>
           <Foot></Foot>
         </div>
       </Router>

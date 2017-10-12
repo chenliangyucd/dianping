@@ -16,6 +16,7 @@ module.exports = {
 	  rules: [
       {
         test: /\.css$/,
+        exclude: path.resolve(__dirname, 'src/common'), 
         use: [
           { loader: 'style-loader' },
           {
@@ -36,7 +37,29 @@ module.exports = {
         ]
       },
       {
+        test: /\.css$/,
+        include: path.resolve(__dirname, 'src/common'),
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins : function (loader) {
+                 return [autoprefixer()];
+              }
+            }
+          }
+        ]
+      },
+      {
         test: /\.styl$/,
+        exclude: path.resolve(__dirname, 'src/common'), 
         use: [
           { loader: 'style-loader' },
           {
@@ -56,6 +79,30 @@ module.exports = {
           },
           {
           	loader: 'stylus-loader'
+          }
+        ]
+      },
+      {
+        test: /\.styl$/,
+        include: path.resolve(__dirname, 'src/common'), 
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins : function (loader) {
+                 return [autoprefixer()];
+              }
+            }
+          },
+          {
+            loader: 'stylus-loader'
           }
         ]
       },
@@ -86,7 +133,7 @@ module.exports = {
       component: 'src/component',
       container: 'src/container'
     },
-    extensions:['.js','.jsx']
+    extensions:['.js', '.jsx']
   },
 	plugins: [new HtmlWebpackPlugin({
       title: 'react dianping',
