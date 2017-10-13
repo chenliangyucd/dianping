@@ -1,0 +1,38 @@
+@import "~common/stylus/variable.styl";
+
+.theme-conainer
+  margin-top: $common-mg-top
+  padding: 0 12px 18px
+  background-color: $bg-white
+  .theme-head
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 16px 0
+    .theme-title
+      font-size: 18px
+      font-weight: bold
+      color: #ff7a04
+    .theme-link
+      color: #bbb
+    .theme-right-arrow
+      display: inline-block
+      vertical-align: middle
+      transform: rotate(270deg)
+  .theme-list
+    display: flex
+    .theme-item
+      width: 32%
+      flex-basis: 32%
+      .theme-item-img
+        img 
+          width: 100%
+      .theme-item-title
+        font-size: 16px
+        line-height: 30px
+      .theme-item-info
+        color: #ff794c
+        .theme-item-money
+          font-size: 16px
+    .theme-item + .theme-item
+      margin-left: 2%
