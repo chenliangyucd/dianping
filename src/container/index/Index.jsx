@@ -6,8 +6,17 @@ import HeadLine from 'component/Index/HeadLine';
 import ThemeLine from 'component/Index/ThemeLine';
 import ThemeRect from 'component/Index/ThemeRect';
 import ThemeList from 'component/Index/ThemeList';
+import GuessYouLike from 'component/Index/GuessYouLike';
+import {getThemeRect} from 'api/index';
 
 class Index extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      themeRect: [],
+      test: 'abc'
+    };
+  }
   render () {
     return (
       <div>
@@ -16,10 +25,23 @@ class Index extends React.Component {
         <MenuSlide></MenuSlide>
         <HeadLine></HeadLine>
         <ThemeLine></ThemeLine>
-        <ThemeList themeinfo= {{title: "天天立减"}}></ThemeList>
-        <ThemeList themeinfo= {{title: "超值特惠"}}></ThemeList>
+        <ThemeRect themeRect = {this.state.themeRect}></ThemeRect>
+        <ThemeList themeinfo= {{title: "天天立减"}}></ThemeList>       
+        <GuessYouLike></GuessYouLike>
       </div>
     );
+  }
+  componentDidMount () {
+    getThemeRect().then( (data) => {
+      console.info(data);
+      console.info('开始设置打印state');
+      setTimeout(() => {
+        this.setState({themeRect: data});     
+        console.info(this.state);
+      }, 2000);     
+    }).catch( (error) => {
+      console.info(error);
+    });
   }
 }
 

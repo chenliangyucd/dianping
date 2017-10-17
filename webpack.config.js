@@ -131,7 +131,8 @@ module.exports = {
       src: path.resolve(__dirname, 'src'),
       common: 'src/common',
       component: 'src/component',
-      container: 'src/container'
+      container: 'src/container',
+      api: 'src/api'
     },
     extensions:['.js', '.jsx']
   },
@@ -145,6 +146,9 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
+    proxy: {
+      "/api": "http://localhost:3000"
+    },
     historyApiFallback: true,
     inline: true,
     open: true,

@@ -1,0 +1,47 @@
+@import "~common/stylus/variable.styl";
+
+.gyl-container
+  margin-top: $common-mg-top
+  padding: 0 $common-padding-lr 
+  color: #777
+  font-size: 14px
+  background-color: $bg-white
+  .gyl-head
+    padding: 12px 0
+    font-size: 16px
+  .gyl-list
+    padding-bottom: 16px
+    .gyl-item
+      display: flex
+      border: 0
+      .gyl-image
+        width: 108px
+        flex-basis: 108px
+        height: 108px
+      .gyl-content
+        flex-grow: 1
+        margin-left: 10px
+        .gyl-title
+          margin-top: 14px
+          font-size: 18px
+          color: #111
+        .gyl-des
+          margin-top: 14px
+        .gyl-info
+          display: flex
+          justify-content: space-between
+          margin-top: 18px
+          .gyl-unit
+            color: #ff6633
+            .gyl-promo-money
+              font-size: 18px
+              font-weight: bold
+          .gyl-money
+            text-decoration: line-through
+    .gyl-item + .gyl-item
+      margin-top: 18px
+    .gyl-item.gyl-more
+      justify-content: center
+      align-item: center
+      color: #333
+      font-size: 16px

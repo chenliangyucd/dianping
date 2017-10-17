@@ -7,20 +7,17 @@ class Theme extends React.Component {
   render () {
     return (
       <div className={style['theme-container']}>
-        <div className={style['theme-item']}>
-          <section className={style['theme-content']}>
-            <h3 className={style['theme-title']}>拼手气赢豪礼</h3>
-            <div className={style['theme-des']}>大奖免费抽取</div>
-          </section>
-          <img src={example1} alt="主题图片1"/>
-        </div>
-        <div className={style['theme-item']}>
-          <section className={style['theme-content']}>
-            <h3 className={style['theme-title']}>旅行说走就走</h3>
-            <div className={style['theme-des']}>独家</div>
-          </section>
-          <img src={example2} alt="主题图片2"/>
-        </div>
+        { 
+         this.props.themeRect.map((item, index) => {
+           return <div key={index} style={{backgroundColor: item.bg_color}} className={style['theme-item']}>
+              <section className={style['theme-content']}>
+                <h3 className={style['theme-title']}>{item.title}</h3>
+                <div className={style['theme-des']}>{item.sub_title}</div>
+              </section>
+              <img src={example1} alt={item.bg_color}/>
+            </div>
+         })
+        }
       </div>
     );
   }
