@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 
 import Index from 'container/Index';
-import Foot from 'component/Foot';
+import Login from 'container/Login';
 
 class Routes extends React.Component {
   render () {
@@ -16,7 +16,7 @@ class Routes extends React.Component {
       <Router>
         <div>
           <Route path="/index" component={Index}></Route>
-          <Foot></Foot>
+          <Route path="/login" component={Login}></Route>
         </div>
       </Router>
     );

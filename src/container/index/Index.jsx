@@ -7,13 +7,17 @@ import ThemeLine from 'component/Index/ThemeLine';
 import ThemeRect from 'component/Index/ThemeRect';
 import ThemeList from 'component/Index/ThemeList';
 import GuessYouLike from 'component/Index/GuessYouLike';
-import {getThemeRect} from 'api/index';
+import Foot from 'component/Foot';
+import {getThemeRect, getThemeLine, getThemeList} from 'api/index';
 
 class Index extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
       themeRect: [],
+      themeLine: [],
+      themeList0: {},
+      themeList1: {},
       test: 'abc'
     };
   }
@@ -24,24 +28,41 @@ class Index extends React.Component {
         <App></App>
         <MenuSlide></MenuSlide>
         <HeadLine></HeadLine>
-        <ThemeLine></ThemeLine>
+        <ThemeLine themeLine= {this.state.themeLine}></ThemeLine>
         <ThemeRect themeRect = {this.state.themeRect}></ThemeRect>
-        <ThemeList themeinfo= {{title: "天天立减"}}></ThemeList>       
+        <ThemeList themeList= {this.state.themeList0}></ThemeList>       
+        <ThemeList themeList= {this.state.themeList1}></ThemeList>
         <GuessYouLike></GuessYouLike>
+        <Foot></Foot>
       </div>
     );
   }
   componentDidMount () {
     getThemeRect().then( (data) => {
-      console.info(data);
-      console.info('开始设置打印state');
-      setTimeout(() => {
-        this.setState({themeRect: data});     
-        console.info(this.state);
-      }, 2000);     
+      // 只有setState的时候才会触发视图更新
+      this.setState({themeRect: data});     
     }).catch( (error) => {
-      console.info(error);
+      // 进行错误处理,基本上只能给用户提示，将所有渲染的元素移除，我感觉最好的是给元素加上点击重试
     });
+
+    getThemeLine().then( (data) => {
+      this.setState({themeLine: data});
+    }).catch( (error) => {
+      // 进行错误处理,基本上只能给用户提示，将所有渲染的元素移除，我感觉最好的是给元素加上点击重试    
+    });
+    
+    getThemeList().then( (data) => {
+      console.info('打印获取到的themeList');
+      console.info(data);
+      this.setState({
+        themeList0: data.themeList0,
+        themeList1: data.themeList1
+      });
+     // this.setState({themeLine: data});
+    }).catch( (error) => {
+      // 进行错误处理,基本上只能给用户提示，将所有渲染的元素移除，我感觉最好的是给元素加上点击重试    
+    });
+
   }
 }
 
