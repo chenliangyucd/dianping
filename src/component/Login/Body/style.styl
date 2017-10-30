@@ -1,3 +1,6 @@
+$common-login-width = 91.48%
+.login-body
+  flex-grow: 1
 .login-container
   margin-top: 20px
   padding-left: 19px
@@ -29,3 +32,52 @@
       border-radius: 4px
   .login-line:first-of-type
     border-bottom: 1px solid #f0f0f0
+.login-des
+  margin: 4px 0 14px
+  font-size: 14px
+  text-align: center
+  color: #999
+.login-btn-wrap
+  text-align: center
+  .login-btn
+    font-size: 14px
+    width: $common-login-width
+    height: 40px
+    border-width: 0
+    border-radius: 4px
+    color: #fff
+    line-height: 40px
+    background-color: #ff6633
+.login-account-wrap
+  width: $common-login-width
+  margin: 14px auto 0
+  text-align: right
+  color: #466889
+  font-size: 14px
+.login-third-wrap
+  display: flex
+  width: $common-login-width
+  margin: 92px auto 0
+  align-items: center
+  .login-third-line
+    flex-grow: 1
+    height: 2px
+    background-color: #d7d7d7
+  .login-third-text
+    margin: 0 16px
+    font-size: 14px
+    color: #cbcbcb
+.login-thirdway-wrap
+  display: flex
+  width: $common-login-width
+  margin: 24px auto 0
+  justify-content: space-around
+  align-items: center
+  .login-thirdway-item
+    width: 44px
+    height: 43px
+    background: url('./imgs/icon-sprite.png') no-repeat
+  .login-thirdway-item.login-thirdway-qq
+    background-position: 0 0
+  .login-thirdway-item.login-thirdway-wb
+    background-position: 0 -53px
