@@ -8,7 +8,7 @@ class Login extends React.Component {
   render () {
     return <div className={style['login-wrap']}>
              <Head></Head>
-             <Slider count="3" direction="row">
+             <Slider count="3" direction="row" time="5">
                <span>123</span>
                <span>456</span>
                <span>789</span>

@@ -16,17 +16,22 @@ class Slider extends React.Component {
     let flagDirection = this.props.direction === 'column' ? false : true;
     
     // 第二层嵌套的html样式
-    let styleInner = {width: flagDirection? 100 * this.props.count + '%' : '100%', height: flagDirection? '100%': 100 * this.props.count + '%'  };
+    let styleInner = {display: 'flex', flexDirection: flagDirection? 'row' : 'column', width: flagDirection? 100 * this.props.count + '%' : '100%', height: flagDirection? '100%': 100 * this.props.count + '%'  };
 
     // 计算每层的item的长度
     let itemLen = Math.floor(100 / this.props.count * 100) / 100 + '%';
-    let styleItem = {width: flagDirection? itemLen: '100%', height: flagDirection? '100%': itemLen};
+    let styleItem = {width: flagDirection? itemLen: '100%', height: flagDirection? '100%': itemLen, transition: 'transform 3S', transform: 'translateX(0)'};
+    
+    
 
-    //设置state
+    // 初始化index 默认从0开始
+    let index = 0; 
+    // 设置state
     this.state = {
        flagDirection,
        styleInner,
-       styleItem
+       styleItem,
+       index
     };
   }
   render () {
